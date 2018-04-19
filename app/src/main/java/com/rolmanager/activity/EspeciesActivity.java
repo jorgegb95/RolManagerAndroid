@@ -12,9 +12,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.rolmanager.Adapter.AdaptadorEspecies;
 import com.rolmanager.database.AdminBaseDatos;
 import com.rolmanager.R;
 import com.rolmanager.database.Especies;
+
+import java.util.ArrayList;
 
 public class EspeciesActivity extends AppCompatActivity {
 
@@ -58,49 +61,12 @@ public class EspeciesActivity extends AppCompatActivity {
                     i++;
                 }while(c.moveToNext());
 
-                AdaptadorEspecies adaptador=new AdaptadorEspecies(this);
-                lvLista.setAdapter(adaptador);
+                AdaptadorEspecies adaptadorEspecies=new AdaptadorEspecies(this, listaEspecies);
+
+                lvLista = (ListView) findViewById(R.id.lvEspecies);
+                lvLista.setAdapter(adaptadorEspecies);
             }
         }
-    }
-
-    class AdaptadorEspecies extends ArrayAdapter{
-        Activity context;
-        AdaptadorEspecies(Activity context){
-            super(context, R.layout., listaEspecies);
-            this.context=context;
-        }
-
-        public View getView(int position, View convertView, ViewGroup parent)
-        {
-            View item = convertView;
-            ViewHolder holder;
-            if (item == null)
-            {
-                LayoutInflater inflater = context.getLayoutInflater();
-                item = inflater.inflate(R.layout.listitem_usuario, null);
-
-                holder = new ViewHolder();
-                holder.codigo = (TextView)item.findViewById(R.id.LblCodigo);
-                holder.nombre = (TextView)item.findViewById(R.id.LblNombre);
-                holder.email = (TextView)item.findViewById(R.id.LblEmail);
-
-                item.setTag(holder);
-            }else{
-                holder = (ViewHolder)item.getTag();
-            }
-            holder.codigo.setText(listaEspecies[position].getCodigo() + "");
-            holder.nombre.setText(listaEspecies[position].getNombre());
-            holder.email.setText(listaEspecies[position].getEmail());
-
-            return(item);
-        }
-    }
-    static class ViewHolder {
-        TextView codigo;
-        TextView nombre;
-        TextView email;
-    }
     }
 
 }
