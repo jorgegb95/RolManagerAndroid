@@ -1,4 +1,4 @@
-package com.rolmanager;
+package com.rolmanager.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,8 +11,7 @@ public class AdminBaseDatos extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("create table tableEspecies(id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-                "        nombre text,\n" +
+        db.execSQL("create table tableEspecies(nombre text PRIMARY KEY,\n" +
                 "        edadMedia INTEGER,\n" +
                 "        edadAdulta INTEGER,\n" +
                 "        pesoMinimo INTEGER,\n" +
@@ -26,8 +25,7 @@ public class AdminBaseDatos extends SQLiteOpenHelper {
 
     public void onUpgrade (SQLiteDatabase db, int version1, int version2){
         db.execSQL("drop table if exists tableEspecies");
-        db.execSQL("create table if exists tableEspecies(id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-                "        nombre text,\n" +
+        db.execSQL("create table tableEspecies(nombre text PRIMARY KEY,\n" +
                 "        edadMedia INTEGER,\n" +
                 "        edadAdulta INTEGER,\n" +
                 "        pesoMinimo INTEGER,\n" +

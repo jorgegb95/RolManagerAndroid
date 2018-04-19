@@ -1,9 +1,12 @@
-package com.rolmanager;
+package com.rolmanager.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.rolmanager.R;
+import com.rolmanager.activity.EspeciesActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
