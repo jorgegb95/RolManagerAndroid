@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.rolmanager.R;
-import com.rolmanager.activity.EspeciesActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -19,5 +18,10 @@ public class HomeActivity extends AppCompatActivity {
     public void abrirVistaEspecies(View view){
         Intent especiesView= new Intent(this, EspeciesActivity.class);
         startActivity(especiesView);
+    }
+
+    public void abrirVistaListaPersonajes(View view){
+        Intent listaPersonajesView= new Intent(this, ListaPersonajesActivity.class);
+        startActivity(listaPersonajesView);
     }
 }

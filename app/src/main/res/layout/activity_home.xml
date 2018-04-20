@@ -58,7 +58,8 @@
                     android:layout_width="89dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Personajes" />
+                    android:text="Personajes"
+                    android:onClick="abrirVistaListaPersonajes"/>
 
                 <Button
                     android:id="@+id/buttonListaOjetos"
@@ -90,8 +91,6 @@
                     android:layout_weight="1"
                     android:text="Calculadora" />
             </LinearLayout>
-
         </LinearLayout>
-
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

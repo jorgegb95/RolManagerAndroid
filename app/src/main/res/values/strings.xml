@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RolManager</string>
     <string name="especies">Especies</string>
+    <string name="title_activity_personaje">PersonajeActivity</string>
 </resources>
