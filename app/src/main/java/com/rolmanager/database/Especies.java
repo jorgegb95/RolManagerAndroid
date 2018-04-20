@@ -11,11 +11,12 @@ public class Especies {
     private double alturaMaxima;
     private String aspectos;
     private String relacion;
+    private int imagen;
 
 
     public Especies(){}
 
-    public Especies(String nombre, int edadAdulta, int edadMedia, int pesoMinimo, int pesoMaximo, double alturaMinima, double alturaMaxima, String aspectos, String relacion) {
+    public Especies(String nombre, int edadMedia, int edadAdulta, int pesoMinimo, int pesoMaximo, double alturaMinima, double alturaMaxima, String aspectos, String relacion, int imagen) {
         this.nombre = nombre;
         this.edadAdulta = edadAdulta;
         this.edadMedia = edadMedia;
@@ -25,6 +26,7 @@ public class Especies {
         this.alturaMaxima = alturaMaxima;
         this.aspectos = aspectos;
         this.relacion = relacion;
+        this.imagen=imagen;
     }
 
     public String getNombre() {
@@ -99,5 +101,27 @@ public class Especies {
         this.relacion = relacion;
     }
 
+    public int getImagen() {
+        return imagen;
+    }
 
+    public void setImagen(int imagen) {
+        this.imagen = imagen;
+    }
+
+    @Override
+    public String toString() {
+        return "Especies{" +
+                "nombre='" + nombre + '\'' +
+                ", edadAdulta=" + edadAdulta +
+                ", edadMedia=" + edadMedia +
+                ", pesoMinimo=" + pesoMinimo +
+                ", pesoMaximo=" + pesoMaximo +
+                ", alturaMinima=" + alturaMinima +
+                ", alturaMaxima=" + alturaMaxima +
+                ", aspectos='" + aspectos + '\'' +
+                ", relacion='" + relacion + '\'' +
+                ", imagen=" + imagen +
+                '}';
+    }
 }
