@@ -7,13 +7,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
 import com.rolmanager.Adapter.AdapterEspecies;
-import com.rolmanager.database.AdminBaseDatos;
+import com.rolmanager.database.BaseDatosEspecies;
 import com.rolmanager.R;
 import com.rolmanager.database.Especies;
 
@@ -23,7 +20,7 @@ public class EspeciesActivity extends AppCompatActivity {
 
     private ToggleButton toggleButton;
     private Layout layout;
-    private AdminBaseDatos admindb;
+    private BaseDatosEspecies admindb;
     private SQLiteDatabase db;
     private ArrayList<Especies> listaEspecies;
     private Especies especie;
@@ -36,7 +33,7 @@ public class EspeciesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_especies);
 
-        admindb=new AdminBaseDatos(this, "DBEspecies", null, 1);
+        admindb=new BaseDatosEspecies(this, "DBEspecies", null, 1);
         SQLiteDatabase db = admindb.getWritableDatabase();
 
         if(db!=null){
