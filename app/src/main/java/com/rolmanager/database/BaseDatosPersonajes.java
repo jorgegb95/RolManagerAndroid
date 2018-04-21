@@ -15,7 +15,7 @@ public class BaseDatosPersonajes extends SQLiteOpenHelper {
                 "nombre texto," +
                 "nombreJugador texto," +
                 "edad INTEGER," +
-                "altura INTEGER," +
+                "altura FLOAT," +
                 "sexo texto," +
                 "especie texto)");
 

@@ -5,13 +5,13 @@ public class Personajes {
     private String nombreJugador;
     private String especie;
     private int edad;
-    private int altura;
+    private double altura;
     private String sexo;
     private int nivel;
 
     public Personajes(){}
 
-    public Personajes(String nombre, String nombreJugador, String especie, int edad, int altura, String sexo, int nivel) {
+    public Personajes(String nombre, String nombreJugador, String especie, int edad, double altura, String sexo, int nivel) {
         this.nombre = nombre;
         this.nombreJugador = nombreJugador;
         this.especie = especie;
@@ -53,11 +53,11 @@ public class Personajes {
         this.edad = edad;
     }
 
-    public int getAltura() {
+    public double getAltura() {
         return altura;
     }
 
-    public void setAltura(int altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
 

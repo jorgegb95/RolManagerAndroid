@@ -6,22 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".activity.ListaPersonajesActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recicladorListaPersonajes"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:padding="3dp"
-        android:scrollbars="vertical"
-        android:isScrollContainer="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="655dp"
+        android:orientation="vertical">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:paddingBottom="16dp"
+            android:theme="?attr/actionBarTheme" >
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_input_add" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="8dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@android:drawable/ic_input_add"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="8dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@android:drawable/ic_search_category_default"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recicladorListaPersonajes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:isScrollContainer="true"
+            android:padding="3dp"
+            android:paddingTop="16dp"
+            android:scrollbars="vertical">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
