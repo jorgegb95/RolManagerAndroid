@@ -17,6 +17,8 @@ import com.rolmanager.database.Especies;
 
 import java.util.ArrayList;
 
+import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
+
 public class AdapterEspecies extends RecyclerView.Adapter<AdapterEspecies.EspeciesViewHolder>{
     private ArrayList<Especies> items;
     private Context context;
@@ -95,6 +97,8 @@ public class AdapterEspecies extends RecyclerView.Adapter<AdapterEspecies.Especi
         holder.edadMedia.setText("Edad media:"+String.valueOf(items.get(position).getEdadMedia()));
         holder.edadAdulto.setText("Edad adulta:"+String.valueOf(items.get(position).getEdadAdulta()));
         holder.aspectos.setText(items.get(position).getAspectos());
+        holder.relacion.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
+        holder.aspectos.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
     }
 
     @Override
