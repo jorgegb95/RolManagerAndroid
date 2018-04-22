@@ -3,7 +3,8 @@ package com.rolmanager.Adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -63,6 +64,7 @@ public class AdapterEspecies extends RecyclerView.Adapter<AdapterEspecies.Especi
         return new EspeciesViewHolder(v);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(EspeciesViewHolder holder, int position) {
         String uri=null;
