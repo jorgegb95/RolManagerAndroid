@@ -17,4 +17,32 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <string-array name="especies">
+        <item>Elfo</item>
+        <item>Enano</item>
+        <item>Humano</item>
+        <item>Gnomo</item>
+        <item>Mediano</item>
+        <item>Orco</item>
+        <item>Trasgo</item>
+    </string-array>
+
+    <string-array name="clases">
+        <item>Arcano</item>
+        <item>Asesino</item>
+        <item>Bárbaro</item>
+        <item>Caballero</item>
+        <item>Clerigo</item>
+        <item>Druida</item>
+        <item>Guerrero</item>
+        <item>Juglar</item>
+        <item>Arcano</item>
+        <item>Ladron</item>
+        <item>Mago</item>
+        <item>Monje</item>
+        <item>Montaraz</item>
+        <item>Paladin</item>
+        <item>Trovador</item>
+    </string-array>
+
 </resources>

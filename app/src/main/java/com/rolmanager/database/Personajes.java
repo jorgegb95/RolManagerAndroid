@@ -8,18 +8,9 @@ public class Personajes {
     private double altura;
     private String sexo;
     private int nivel;
+    private String clase;
 
     public Personajes(){}
-
-    public Personajes(String nombre, String nombreJugador, String especie, int edad, double altura, String sexo, int nivel) {
-        this.nombre = nombre;
-        this.nombreJugador = nombreJugador;
-        this.especie = especie;
-        this.edad = edad;
-        this.altura = altura;
-        this.sexo = sexo;
-        this.nivel=nivel;
-    }
 
     public String getNombre() {
         return nombre;
@@ -77,6 +68,14 @@ public class Personajes {
         this.nivel = nivel;
     }
 
+    public String getClase() {
+        return clase;
+    }
+
+    public void setClase(String clase) {
+        this.clase = clase;
+    }
+
     @Override
     public String toString() {
         return "Personajes{" +
@@ -87,6 +86,7 @@ public class Personajes {
                 ", altura=" + altura +
                 ", sexo='" + sexo + '\'' +
                 ", nivel=" + nivel +
+                ", clase='" + clase + '\'' +
                 '}';
     }
 }

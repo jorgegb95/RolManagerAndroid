@@ -4,14 +4,14 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class BaseDatosEspecies extends SQLiteOpenHelper {
+public class BaseDatos extends SQLiteOpenHelper {
 
-    public BaseDatosEspecies(Context context, String nombre, SQLiteDatabase.CursorFactory factory, int version){
+    public BaseDatos(Context context, String nombre, SQLiteDatabase.CursorFactory factory, int version){
         super(context, nombre, factory, version);
     }
 
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("create table tableEspecies(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre text,\n" +
+        db.execSQL("create table if not exists tableEspecies(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre text,\n" +
                 "        edadMedia INTEGER,\n" +
                 "        edadAdulta INTEGER,\n" +
                 "        pesoMinimo INTEGER,\n" +
@@ -21,6 +21,15 @@ public class BaseDatosEspecies extends SQLiteOpenHelper {
                 "        aspectos text,\n" +
                 "        relacionOtrasEspecies text,\n" +
                 "        imagen text)");
+
+        db.execSQL("create table if not exists tablePersonajes(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "nombre texto," +
+                "nombreJugador texto," +
+                "edad INTEGER," +
+                "altura FLOAT," +
+                "sexo texto," +
+                "clase texto,"+
+                "especie texto)");
 
     }
 

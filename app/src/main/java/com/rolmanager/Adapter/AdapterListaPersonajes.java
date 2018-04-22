@@ -31,7 +31,7 @@ public class AdapterListaPersonajes extends RecyclerView.Adapter<AdapterListaPer
     public void onBindViewHolder(PersonajesViewHolder holder, int position) {
         holder.especie.setText(items.get(position).getEspecie());
         holder.nombre.setText(items.get(position).getNombre());
-        holder.edad.setText(items.get(position).getEdad());
+        holder.edad.setText(String.valueOf(items.get(position).getEdad()));
     }
 
     @Override

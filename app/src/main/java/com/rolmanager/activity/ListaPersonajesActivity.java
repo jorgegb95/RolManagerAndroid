@@ -12,14 +12,14 @@ import android.view.View;
 
 import com.rolmanager.Adapter.AdapterListaPersonajes;
 import com.rolmanager.R;
-import com.rolmanager.database.BaseDatosPersonajes;
+import com.rolmanager.database.BaseDatos;
 import com.rolmanager.database.Personajes;
 
 import java.util.ArrayList;
 
 public class ListaPersonajesActivity extends AppCompatActivity {
 
-    private BaseDatosPersonajes admindb;
+    private BaseDatos admindb;
     private SQLiteDatabase db;
     private ArrayList<Personajes> listaPersonajes;
     private Personajes personaje;
@@ -33,7 +33,7 @@ public class ListaPersonajesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_personajes);
 
-        admindb=new BaseDatosPersonajes(this, "DBPersonajes", null, 1);
+        admindb=new BaseDatos(this, "DBLocal", null, 1);
 
         cargarListaJugadores();
 
@@ -74,7 +74,7 @@ public class ListaPersonajesActivity extends AppCompatActivity {
     }
 
     public void crearPersonaje(View v){
-        Intent nuevoPersonajesView= new Intent(this, NuevoPersonajeActivity.class);
+        Intent nuevoPersonajesView= new Intent(this, CrearPersonajeActivity.class);
         startActivity(nuevoPersonajesView);
     }
 

@@ -10,7 +10,7 @@ import android.text.Layout;
 import android.widget.ToggleButton;
 
 import com.rolmanager.Adapter.AdapterEspecies;
-import com.rolmanager.database.BaseDatosEspecies;
+import com.rolmanager.database.BaseDatos;
 import com.rolmanager.R;
 import com.rolmanager.database.Especies;
 
@@ -18,9 +18,7 @@ import java.util.ArrayList;
 
 public class EspeciesActivity extends AppCompatActivity {
 
-    private ToggleButton toggleButton;
-    private Layout layout;
-    private BaseDatosEspecies admindb;
+    private BaseDatos admindb;
     private SQLiteDatabase db;
     private ArrayList<Especies> listaEspecies;
     private Especies especie;
@@ -33,11 +31,11 @@ public class EspeciesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_especies);
 
-        admindb=new BaseDatosEspecies(this, "DBEspecies", null, 1);
+        admindb=new BaseDatos(this, "DBLocal", null, 1);
         SQLiteDatabase db = admindb.getWritableDatabase();
 
         if(db!=null){
-            admindb.onUpgrade(db, 1, 1);
+            admindb.onUpgrade(db, 1, 2);
 
             db.execSQL("insert into tableEspecies \n" +
                     "        (nombre,edadMedia,edadAdulta,pesoMinimo ,pesoMaximo ,alturaMinima ,alturaMaxima ,aspectos ,relacionOtrasEspecies ,imagen)\n" +
@@ -108,6 +106,7 @@ public class EspeciesActivity extends AppCompatActivity {
                     listaEspecies.add(especie);
 
                 }while(c.moveToNext());
+
 
                 recycler = (RecyclerView) findViewById(R.id.reciclador);
                 recycler.setHasFixedSize(true);
