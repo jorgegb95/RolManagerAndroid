@@ -21,32 +21,30 @@
             android:theme="?attr/actionBarTheme" >
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="right"
-                android:layout_marginRight="8dp">
+                android:layout_marginRight="8dp"
+                android:padding="16dp">
 
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@android:drawable/ic_input_add"/>
+                <TextView
+                    android:id="@+id/lblTituloToolBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="RolManager"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+                <Button
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:drawableRight="@android:drawable/ic_input_add"
+                    android:onClick="crearPersonaje"
+                    android:textColor="@android:color/background_dark" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:layout_gravity="right"
-                android:layout_marginRight="8dp">
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@android:drawable/ic_search_category_default"/>
-
-            </LinearLayout>
 
         </android.support.v7.widget.Toolbar>
 
