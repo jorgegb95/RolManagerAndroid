@@ -82,11 +82,10 @@
                     android:layout_width="182dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="Especie"
                     android:textAlignment="viewStart"
                     android:textAppearance="@style/TextAppearance.AppCompat"
-                    android:textStyle="bold"
-                    tools:text="Especie" />
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/spinnerEspecie"

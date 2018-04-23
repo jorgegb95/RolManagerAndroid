@@ -76,6 +76,7 @@ public class ListaPersonajesActivity extends AppCompatActivity {
     public void crearPersonaje(View v){
         Intent nuevoPersonajesView= new Intent(this, CrearPersonajeActivity.class);
         startActivity(nuevoPersonajesView);
+        finish();
     }
 
 }

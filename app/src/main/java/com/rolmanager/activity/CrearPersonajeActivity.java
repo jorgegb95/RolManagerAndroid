@@ -92,9 +92,9 @@ public class CrearPersonajeActivity extends AppCompatActivity {
                     db.insert("tablePersonajes", null, nuevoPersonaje);
 
                     Toast.makeText(CrearPersonajeActivity.this, "Nuevo personaje creado", Toast.LENGTH_SHORT).show();
-
+                    finish();
                 }
-                finish();
+
             }
         });
     }
