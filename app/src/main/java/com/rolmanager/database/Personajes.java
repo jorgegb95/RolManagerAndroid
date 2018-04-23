@@ -9,8 +9,17 @@ public class Personajes {
     private String sexo;
     private int nivel;
     private String clase;
+    private int id;
 
     public Personajes(){}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
@@ -87,6 +96,7 @@ public class Personajes {
                 ", sexo='" + sexo + '\'' +
                 ", nivel=" + nivel +
                 ", clase='" + clase + '\'' +
+                ", id=" + id +
                 '}';
     }
 }
