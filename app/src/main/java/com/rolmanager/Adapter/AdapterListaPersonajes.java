@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rolmanager.R;
+import com.rolmanager.activity.DetallesPersonajeActivity;
 import com.rolmanager.database.BaseDatos;
 import com.rolmanager.database.Personajes;
 
@@ -94,10 +95,10 @@ public class AdapterListaPersonajes extends RecyclerView.Adapter<AdapterListaPer
                     Toast.makeText(v.getContext(), "Personaje borrado. Vuelve para atras para cargar la lista", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.buttonEditar:
-                    /*Intent intent = new Intent(context, DetallesPersonajeActivity.class);
+                    Intent intent = new Intent(context, DetallesPersonajeActivity.class);
                     intent.putExtra("id",id.getText());
-                    context.startActivities(intent);
-
+                    context.startActivities(new Intent[]{intent});
+/*
                     En el otro activity (DetallesPersonaje.class habra que poner en el onCreate:
                         Bundle extras = getIntent().getExtras()
                         if(extras!=null){

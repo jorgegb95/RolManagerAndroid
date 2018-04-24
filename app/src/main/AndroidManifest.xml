@@ -21,7 +21,8 @@
             android:name=".activity.ListaPersonajesActivity"
             android:label="@string/title_activity_personaje"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.CrearPersonajeActivity"></activity>
+        <activity android:name=".activity.CrearPersonajeActivity" />
+        <activity android:name=".activity.DetallesPersonajeActivity"></activity>
     </application>
 
 </manifest>
