@@ -15,17 +15,19 @@ import com.rolmanager.tabs.PageUsuario;
 public class DetallesPersonajeActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private AdapterViewPage adapterViewPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles_personaje);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        adapterViewPage = new AdapterViewPage(getSupportFragmentManager());
+
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
 
         tabLayout.setupWithViewPager(viewPager);
-
 
     }
 

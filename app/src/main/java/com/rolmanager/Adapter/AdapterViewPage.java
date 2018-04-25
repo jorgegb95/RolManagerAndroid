@@ -1,6 +1,5 @@
 package com.rolmanager.Adapter;
 
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -31,6 +30,8 @@ public class AdapterViewPage extends FragmentPagerAdapter {
         mFgragmentList.add(fragment);
         mFgragmentTitleList.add(title);
     }
+
+
     @Override
     public CharSequence getPageTitle(int position){
         return mFgragmentTitleList.get(position);
