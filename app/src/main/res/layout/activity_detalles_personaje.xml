@@ -6,69 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".activity.DetallesPersonajeActivity">
 
-  <TabHost
-      android:id="@+id/tabHost"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/AppBarDetalles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-      <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent" >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarDetalles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="UnusedAttribute" />
 
-          <TabWidget android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:id="@android:id/tabs" />
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabsDetalles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@android:color/white" />
+    </android.support.design.widget.AppBarLayout>
 
-          <FrameLayout android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:id="@android:id/tabcontent" >
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/darker_gray"/>
 
-              <LinearLayout android:id="@+id/tab1"
-                  android:orientation="vertical"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent" >
-
-                  <TextView android:id="@+id/textView1"
-                      android:text="Contenido Tab 1"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content" />
-              </LinearLayout>
-
-              <LinearLayout android:id="@+id/tab2"
-                  android:orientation="vertical"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent" >
-
-                  <TextView android:id="@+id/textView2"
-                      android:text="Contenido Tab 2"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content" />
-              </LinearLayout>
-
-              <LinearLayout android:id="@+id/tab3"
-                  android:orientation="vertical"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent" >
-
-                  <TextView android:id="@+id/textView3"
-                      android:text="Contenido Tab 3"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content" />
-              </LinearLayout>
-
-              <LinearLayout android:id="@+id/tab4"
-                  android:orientation="vertical"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent" >
-
-                  <TextView android:id="@+id/textView4"
-                      android:text="Contenido Tab 4"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content" />
-              </LinearLayout>
-
-          </FrameLayout>
-      </LinearLayout>
-  </TabHost>
 </android.support.constraint.ConstraintLayout>
