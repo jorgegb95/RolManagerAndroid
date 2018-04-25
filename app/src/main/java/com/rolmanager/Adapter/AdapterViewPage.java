@@ -1,26 +1,38 @@
 package com.rolmanager.Adapter;
 
 
-import android.support.v4.view.PagerAdapter;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ListView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class AdapterViewPage extends PagerAdapter{
-    private LinearLayout page1;
-    private LinearLayout page2;
-    private ListView page3;
-    private LinearLayout page4;
+public class AdapterViewPage extends FragmentPagerAdapter {
+    private final List<Fragment> mFgragmentList = new ArrayList<>();
+    private final List<String> mFgragmentTitleList = new ArrayList<>();
 
-
-    @Override
-    public int getCount() {
-        return 4;
+    public AdapterViewPage(FragmentManager fm) {
+        super(fm);
     }
 
     @Override
-    public boolean isViewFromObject(View view,Object object) {
-    return false;
+    public Fragment getItem(int position) {
+        return  mFgragmentList.get(position);
+    }
+
+    @Override
+    public int getCount() {
+        return mFgragmentList.size();
+    }
+
+    public void addFragment(Fragment fragment, String title){
+        mFgragmentList.add(fragment);
+        mFgragmentTitleList.add(title);
+    }
+    @Override
+    public CharSequence getPageTitle(int position){
+        return mFgragmentTitleList.get(position);
     }
 }
