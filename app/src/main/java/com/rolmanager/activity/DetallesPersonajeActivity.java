@@ -28,15 +28,15 @@ public class DetallesPersonajeActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
 
         tabLayout.setupWithViewPager(viewPager);
-
+        setUpViewPager(viewPager);
     }
 
     private void setUpViewPager(ViewPager pager){
         AdapterViewPage tabViewPagerAdapter = new AdapterViewPage(getSupportFragmentManager());
-        tabViewPagerAdapter.addFragment(new PageUsuario(), "Tab1");
-        tabViewPagerAdapter.addFragment(new PageCaracteristicas(), "Tab2");
-        tabViewPagerAdapter.addFragment(new PageEquipo(), "Tab3");
-        tabViewPagerAdapter.addFragment(new PageMochila(), "Tab3");
+        tabViewPagerAdapter.addFragment(new PageUsuario(), "Usuario");
+        tabViewPagerAdapter.addFragment(new PageCaracteristicas(), "Caracteristicas");
+        tabViewPagerAdapter.addFragment(new PageEquipo(), "Equipo");
+        tabViewPagerAdapter.addFragment(new PageMochila(), "Mochila");
         pager.setAdapter(tabViewPagerAdapter);
     }
 
