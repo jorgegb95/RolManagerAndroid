@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -86,8 +85,6 @@ public class CrearPersonajeActivity extends AppCompatActivity {
                     nuevoPersonaje.put("edad",Integer.parseInt(edad));
                     nuevoPersonaje.put("altura",Double.valueOf(altura));
                     nuevoPersonaje.put("clase",clases);
-
-                    Log.d("Nuevo personaje",nuevoPersonaje.toString());
 
                     db.insert("tablePersonajes", null, nuevoPersonaje);
 

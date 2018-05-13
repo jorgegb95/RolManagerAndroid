@@ -98,13 +98,6 @@ public class AdapterListaPersonajes extends RecyclerView.Adapter<AdapterListaPer
                     Intent intent = new Intent(context, DetallesPersonajeActivity.class);
                     intent.putExtra("id",id.getText());
                     context.startActivities(new Intent[]{intent});
-/*
-                    En el otro activity (DetallesPersonaje.class habra que poner en el onCreate:
-                        Bundle extras = getIntent().getExtras()
-                        if(extras!=null){
-                            String value = extras.getString("id");
-                        }
-                    */
                     break;
             }
         }
