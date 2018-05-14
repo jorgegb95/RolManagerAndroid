@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.HomeActivity">
+    tools:context=".activity.HomeActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <LinearLayout
-        android:layout_width="395dp"
-        android:layout_height="587dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        android:textAlignment="center"
+        tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/imagenTyM"
@@ -30,14 +30,15 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="92dp"
+                android:layout_height="68dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/Especies"
                     style="@android:style/Widget.Material.Button.Colored"
-                    android:layout_width="197dp"
+                    android:layout_width="119dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:onClick="abrirVistaEspecies"
                     android:text="@string/especies"
@@ -46,8 +47,9 @@
                 <Button
                     android:id="@+id/buttonMonstruos"
                     style="@android:style/Widget.Material.Button.Colored"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:text="Monstruos"
                     android:textAlignment="center" />
@@ -55,13 +57,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="99dp"
+                android:layout_height="71dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/buttonListaPersonajes"
                     style="@android:style/Widget.Material.Button.Colored"
-                    android:layout_width="89dp"
+                    android:layout_width="99dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_red_dark"
@@ -88,7 +90,7 @@
                 <Button
                     android:id="@+id/buttonClases"
                     style="@android:style/Widget.Material.Button.Colored"
-                    android:layout_width="127dp"
+                    android:layout_width="137dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_red_dark"
