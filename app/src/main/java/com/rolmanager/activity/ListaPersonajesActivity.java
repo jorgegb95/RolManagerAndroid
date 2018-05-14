@@ -28,7 +28,7 @@ public class ListaPersonajesActivity extends AppCompatActivity {
     private Personajes personaje;
     private RecyclerView recycler;
     private RecyclerView.LayoutManager lManager;
-    private RecyclerView.Adapter adapter;
+    private AdapterListaPersonajes adapter;
 
 
     @Override
@@ -37,9 +37,7 @@ public class ListaPersonajesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_personajes);
 
         admindb=new BaseDatos(this, "DBLocal", null, 1);
-
         cargarListaJugadores();
-
     }
 
     private void cargarListaJugadores(){

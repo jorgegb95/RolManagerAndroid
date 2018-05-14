@@ -9,10 +9,11 @@
     <LinearLayout
         android:layout_width="395dp"
         android:layout_height="587dp"
+        android:gravity="center"
         android:orientation="vertical"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:ignore="MissingConstraints">
+        tools:layout_editor_absoluteY="8dp">
 
         <ImageView
             android:id="@+id/imagenTyM"
@@ -24,7 +25,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -33,18 +35,22 @@
 
                 <Button
                     android:id="@+id/Especies"
-                    style="@android:style/Widget.Material.Light.Button.Inset"
+                    style="@android:style/Widget.Material.Button.Colored"
                     android:layout_width="197dp"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_red_dark"
                     android:onClick="abrirVistaEspecies"
-                    android:text="@string/especies" />
+                    android:text="@string/especies"
+                    android:textAlignment="center" />
 
                 <Button
                     android:id="@+id/buttonMonstruos"
-                    style="@android:style/Widget.Material.Light.Button.Inset"
+                    style="@android:style/Widget.Material.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Monstruos" />
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:text="Monstruos"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -54,20 +60,24 @@
 
                 <Button
                     android:id="@+id/buttonListaPersonajes"
-                    style="@android:style/Widget.Material.Light.Button.Inset"
+                    style="@android:style/Widget.Material.Button.Colored"
                     android:layout_width="89dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:onClick="abrirVistaListaPersonajes"
                     android:text="Personajes"
-                    android:onClick="abrirVistaListaPersonajes"/>
+                    android:textAlignment="center" />
 
                 <Button
                     android:id="@+id/buttonListaOjetos"
-                    style="@android:style/Widget.Material.Light.Button.Inset"
+                    style="@android:style/Widget.Material.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Objetos" />
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:text="Objetos"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -77,19 +87,23 @@
 
                 <Button
                     android:id="@+id/buttonClases"
-                    style="@android:style/Widget.Material.Light.Button.Inset"
-                    android:layout_width="wrap_content"
+                    style="@android:style/Widget.Material.Button.Colored"
+                    android:layout_width="127dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Clases" />
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:text="Clases"
+                    android:textAlignment="center" />
 
                 <Button
                     android:id="@+id/buttonCalculadora"
-                    style="@android:style/Widget.Material.Light.Button.Inset"
+                    style="@android:style/Widget.Material.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Calculadora" />
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:text="Calculadora"
+                    android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

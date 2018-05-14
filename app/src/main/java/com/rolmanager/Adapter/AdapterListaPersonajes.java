@@ -33,7 +33,6 @@ public class AdapterListaPersonajes extends RecyclerView.Adapter<AdapterListaPer
     @Override
     public PersonajesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_personajes_cards, parent, false);
-
         return new PersonajesViewHolder(v);
     }
 
@@ -77,6 +76,7 @@ public class AdapterListaPersonajes extends RecyclerView.Adapter<AdapterListaPer
             eliminar = (Button) v.findViewById(R.id.buttonEliminar);
             editar = (Button) v.findViewById(R.id.buttonEditar);
 
+            adapter= new AdapterListaPersonajes();
             admindb = new BaseDatos(context, "DBLocal", null, 1);
         }
 
@@ -91,7 +91,7 @@ public class AdapterListaPersonajes extends RecyclerView.Adapter<AdapterListaPer
                 case R.id.buttonEliminar:
                     db=admindb.getWritableDatabase();
                     db.delete("tablePersonajes", "id="+String.valueOf(id.getText()),null);
-                    adapter= new AdapterListaPersonajes();
+
                     Toast.makeText(v.getContext(), "Personaje borrado. Vuelve para atras para cargar la lista", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.buttonEditar:
