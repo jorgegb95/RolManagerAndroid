@@ -29,7 +29,6 @@ public class ListaPersonajesActivity extends AppCompatActivity {
     private ArrayList<Personajes> listaPersonajes;
     private Personajes personaje;
     private RecyclerView recycler;
-    private RecyclerView.LayoutManager lManager;
     private AdapterListaPersonajes adapter;
 
 
@@ -39,7 +38,16 @@ public class ListaPersonajesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_personajes);
 
         admindb=new BaseDatos(this, "DBLocal", null, 1);
+
         cargarListaJugadores();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                crearPersonaje(v);
+            }
+        });
     }
 
     private void cargarListaJugadores(){
@@ -67,9 +75,6 @@ public class ListaPersonajesActivity extends AppCompatActivity {
 
                 recycler = (RecyclerView) findViewById(R.id.recicladorListaPersonajes);
                 recycler.setHasFixedSize(true);
-
-                lManager = new LinearLayoutManager(this);
-                recycler.setLayoutManager(lManager);
 
                 adapter = new AdapterListaPersonajes(listaPersonajes);
                 recycler.setAdapter(adapter);

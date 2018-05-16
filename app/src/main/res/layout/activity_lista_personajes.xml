@@ -15,43 +15,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:minHeight="?attr/actionBarSize"
-                android:paddingBottom="16dp"
-                android:theme="?attr/actionBarTheme">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="8dp"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:id="@+id/lblTituloToolBar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="RolManager"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-
-                    <Button
-                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:drawableRight="@android:drawable/ic_input_add"
-                        android:onClick="crearPersonaje"
-                        android:textColor="@android:color/background_dark" />
-
-                </LinearLayout>
-
-
-            </android.support.v7.widget.Toolbar>
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recicladorListaPersonajes"
                 android:layout_width="match_parent"
