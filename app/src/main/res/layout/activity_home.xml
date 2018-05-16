@@ -4,93 +4,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.HomeActivity">
+    tools:context=".activity.HomeActivity"
+    tools:layout_editor_absoluteY="81dp">
 
-    <LinearLayout
-        android:layout_width="395dp"
-        android:layout_height="587dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/imagenTyM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            app:srcCompat="@drawable/logotym" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:textAlignment="center"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/imagenTyM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/logotym" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="92dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="20dp">
 
-                <Button
-                    android:id="@+id/Especies"
-                    style="@android:style/Widget.Material.Light.Button.Inset"
-                    android:layout_width="197dp"
-                    android:layout_height="wrap_content"
-                    android:onClick="abrirVistaEspecies"
-                    android:text="@string/especies" />
-
-                <Button
-                    android:id="@+id/buttonMonstruos"
-                    style="@android:style/Widget.Material.Light.Button.Inset"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Monstruos" />
-            </LinearLayout>
+                    android:layout_height="68dp"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="99dp"
-                android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/Especies"
+                        style="@android:style/Widget.Material.Button.Colored"
+                        android:layout_width="119dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/holo_red_dark"
+                        android:onClick="abrirVistaEspecies"
+                        android:text="@string/especies"
+                        android:textAlignment="center" />
 
-                <Button
-                    android:id="@+id/buttonListaPersonajes"
-                    style="@android:style/Widget.Material.Light.Button.Inset"
-                    android:layout_width="89dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Personajes"
-                    android:onClick="abrirVistaListaPersonajes"/>
+                    <Button
+                        android:id="@+id/buttonMonstruos"
+                        style="@android:style/Widget.Material.Button.Colored"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/holo_red_dark"
+                        android:text="Monstruos"
+                        android:textAlignment="center" />
+                </LinearLayout>
 
-                <Button
-                    android:id="@+id/buttonListaOjetos"
-                    style="@android:style/Widget.Material.Light.Button.Inset"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Objetos" />
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="71dp"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="164dp"
-                android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/buttonListaPersonajes"
+                        style="@android:style/Widget.Material.Button.Colored"
+                        android:layout_width="99dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/holo_red_dark"
+                        android:onClick="abrirVistaListaPersonajes"
+                        android:text="Personajes"
+                        android:textAlignment="center" />
 
-                <Button
-                    android:id="@+id/buttonClases"
-                    style="@android:style/Widget.Material.Light.Button.Inset"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Clases" />
+                    <Button
+                        android:id="@+id/buttonClases"
+                        style="@android:style/Widget.Material.Button.Colored"
+                        android:layout_width="137dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/holo_red_dark"
+                        android:text="Clases"
+                        android:textAlignment="center" />
 
-                <Button
-                    android:id="@+id/buttonCalculadora"
-                    style="@android:style/Widget.Material.Light.Button.Inset"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Calculadora" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="164dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/buttonListaOjetos"
+                        style="@android:style/Widget.Material.Button.Colored"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/holo_red_dark"
+                        android:text="Objetos"
+                        android:textAlignment="center" />
+
+                    <Button
+                        android:id="@+id/buttonCalculadora"
+                        style="@android:style/Widget.Material.Button.Colored"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/holo_red_dark"
+                        android:text="Calculadora"
+                        android:textAlignment="center" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>
