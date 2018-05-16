@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
+import android.widget.ListView;
 import android.widget.ToggleButton;
 
 import com.rolmanager.Adapter.AdapterEspecies;
@@ -32,7 +33,7 @@ public class EspeciesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_especies);
 
         admindb=new BaseDatos(this, "DBLocal", null, 1);
-        SQLiteDatabase db = admindb.getWritableDatabase();
+        db = admindb.getWritableDatabase();
 
         if(db!=null){
             admindb.onUpgrade(db, 1, 2);
@@ -106,7 +107,6 @@ public class EspeciesActivity extends AppCompatActivity {
                     listaEspecies.add(especie);
 
                 }while(c.moveToNext());
-
 
                 recycler = (RecyclerView) findViewById(R.id.reciclador);
                 recycler.setHasFixedSize(true);

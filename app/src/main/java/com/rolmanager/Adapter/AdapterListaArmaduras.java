@@ -11,13 +11,15 @@ import android.widget.TextView;
 import com.rolmanager.R;
 import com.rolmanager.database.Armaduras;
 
+import java.util.ArrayList;
+
 public class AdapterListaArmaduras extends ArrayAdapter<Armaduras> {
     private TextView nombre;
     private EditText ca;
     private EditText penalizacion;
-    private Armaduras[] armaduras;
+    private ArrayList<Armaduras> armaduras;
 
-    public AdapterListaArmaduras(Context context, Armaduras[] armaduras) {
+    public AdapterListaArmaduras(Context context, ArrayList<Armaduras> armaduras) {
         super(context, R.layout.lista_armaduras, armaduras);
         this.armaduras=armaduras;
     }
@@ -27,13 +29,13 @@ public class AdapterListaArmaduras extends ArrayAdapter<Armaduras> {
         View item = inflater.inflate(R.layout.lista_armaduras, null);
 
         nombre = (TextView) item.findViewById(R.id.lblNombreArmadura);
-        nombre.setText(armaduras[position].getNombre());
+        nombre.setText(armaduras.get(position).getNombre());
 
         ca = (EditText) item.findViewById(R.id.editTextCA);
-        ca.setText(armaduras[position].getCa());
+        ca.setText(armaduras.get(position).getCa());
 
         penalizacion = (EditText) item.findViewById(R.id.editTextPenalizacion);
-        penalizacion.setText(armaduras[position].getPenalizacion());
+        penalizacion.setText(armaduras.get(position).getPenalizacion());
 
         return(item);
     }
