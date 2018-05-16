@@ -24,4 +24,9 @@ public class HomeActivity extends AppCompatActivity {
         Intent listaPersonajesView= new Intent(this, ListaPersonajesActivity.class);
         startActivity(listaPersonajesView);
     }
+
+    public void abrirVistaListaObjetos(View view){
+        Intent listaPersonajesView= new Intent(this, ListaObjetosActivity.class);
+        startActivity(listaPersonajesView);
+    }
 }

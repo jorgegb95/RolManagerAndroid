@@ -23,6 +23,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.CrearPersonajeActivity" />
         <activity android:name=".activity.DetallesPersonajeActivity" />
+        <activity android:name=".activity.ListaObjetosActivity"></activity>
     </application>
 
 </manifest>
