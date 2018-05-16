@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     tools:context=".activity.HomeActivity"
     tools:layout_editor_absoluteY="81dp">
 
@@ -99,8 +100,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:backgroundTint="@android:color/holo_red_dark"
-                        android:text="Objetos"
                         android:onClick="abrirVistaListaObjetos"
+                        android:text="Objetos"
                         android:textAlignment="center" />
 
                     <Button

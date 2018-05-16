@@ -1,17 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.ListaObjetosActivity">
 
-    <android.support.design.widget.FloatingActionButton
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Spinner
+            android:id="@+id/spinnerOjetos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:entries="@array/objetos"
+            android:spinnerMode="dialog" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/fabObjetos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        android:layout_gravity="end|bottom"
+        fab:fab_addButtonColorNormal="?attr/colorPrimary"
+        fab:fab_addButtonSize="normal"
+        fab:fab_labelsPosition="left">
 
-</android.support.constraint.ConstraintLayout>
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabitems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="124dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            fab:fab_colorNormal="?attr/colorError"
+            fab:fab_icon="@drawable/items"
+            fab:fab_size="mini"
+            fab:fab_title="Items" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabarmas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="@+id/fabitems"
+            app:layout_constraintTop_toBottomOf="@+id/fabitems"
+            fab:fab_colorNormal="?attr/colorError"
+            fab:fab_icon="@drawable/armas"
+            fab:fab_size="mini"
+            fab:fab_title="Armas" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabarmaduras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="@+id/fabarmas"
+            app:layout_constraintTop_toBottomOf="@+id/fabarmas"
+            fab:fab_colorNormal="?attr/colorError"
+            fab:fab_icon="@drawable/armadura"
+            fab:fab_size="mini"
+            fab:fab_title="Armaduras" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+</android.support.design.widget.CoordinatorLayout>
