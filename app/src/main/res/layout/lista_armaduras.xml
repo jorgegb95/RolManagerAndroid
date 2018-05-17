@@ -63,24 +63,22 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextCA"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:editable="false"
                 android:ems="10"
                 android:inputType="numberSigned"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
                 android:textAlignment="center" />
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextPenalizacion"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:editable="false"
                 android:ems="10"
                 android:inputType="numberSigned"
                 android:textAlignment="center" />

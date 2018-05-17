@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.rolmanager.R;
@@ -16,8 +15,8 @@ import java.util.ArrayList;
 public class AdapterListaArmaduras extends ArrayAdapter<Armaduras> {
     private TextView nombre;
     private TextView tipo;
-    private EditText ca;
-    private EditText penalizacion;
+    private TextView ca;
+    private TextView penalizacion;
     private ArrayList<Armaduras> armaduras;
 
     public AdapterListaArmaduras(Context context, ArrayList<Armaduras> armaduras) {
@@ -35,12 +34,20 @@ public class AdapterListaArmaduras extends ArrayAdapter<Armaduras> {
         tipo = (TextView) item.findViewById(R.id.textViewTipoArmadura);
         tipo.setText(armaduras.get(position).getTipo());
 
-        ca = (EditText) item.findViewById(R.id.editTextCA);
+        ca = (TextView) item.findViewById(R.id.editTextCA);
         ca.setText(String.valueOf(armaduras.get(position).getCa()));
 
-        penalizacion = (EditText) item.findViewById(R.id.editTextPenalizacion);
+        penalizacion = (TextView) item.findViewById(R.id.editTextPenalizacion);
         penalizacion.setText(String.valueOf(armaduras.get(position).getPenalizacion()));
 
         return(item);
+    }
+
+    public long getItemId(int position){
+        return position;
+    }
+
+    public Armaduras getItem(int position) {
+        return armaduras.get(position);
     }
 }

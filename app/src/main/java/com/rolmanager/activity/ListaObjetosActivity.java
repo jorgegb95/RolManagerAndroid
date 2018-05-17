@@ -3,15 +3,20 @@ package com.rolmanager.activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
+import com.baoyz.swipemenulistview.SwipeMenu;
+import com.baoyz.swipemenulistview.SwipeMenuCreator;
+import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.rolmanager.Adapter.AdapterListaArmaduras;
 import com.rolmanager.R;
 import com.rolmanager.database.Armaduras;
@@ -21,13 +26,15 @@ import java.util.ArrayList;
 
 public class ListaObjetosActivity extends AppCompatActivity {
     private ArrayList<Armaduras> listArmaduras;
+    private Armaduras auxArm=new Armaduras();
     private BaseDatos admindb;
     private SQLiteDatabase db;
     private FloatingActionButton fabItem;
     private FloatingActionButton fabArma;
     private FloatingActionButton fabArmadura;
     private Spinner spinner;
-    private ListView listView;
+    private SwipeMenuListView listView;
+    private AdapterListaArmaduras adapterListaArmaduras;
 
 
     @Override
@@ -36,8 +43,9 @@ public class ListaObjetosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_objetos);
 
         admindb=new BaseDatos(this, "DBLocal", null, 1);
+        db=admindb.getWritableDatabase();
 
-        listView = (ListView) findViewById(R.id.listaObjetos);
+        listView = (SwipeMenuListView) findViewById(R.id.listaObjetos);
 
         fabItem = findViewById(R.id.fabitems);
         /*fabItem.setOnClickListener(new View.OnClickListener() {
@@ -82,9 +90,41 @@ public class ListaObjetosActivity extends AppCompatActivity {
            }
        });
 
+        SwipeMenuCreator swipeMenuCreator = new SwipeMenuCreator() {
+            @Override
+            public void create(SwipeMenu menu) {
+                // create "delete" item
+                SwipeMenuItem deleteItem = new SwipeMenuItem(
+                        getApplicationContext());
+                // set item background
+                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
+                        0x3F, 0x25)));
+                // set item width
+                deleteItem.setWidth(170);
+                // set a icon
+                deleteItem.setIcon(R.drawable.delete);
+                // add to menu
+                menu.addMenuItem(deleteItem);
+            }
+        };
+
+        listView.setMenuCreator(swipeMenuCreator);
+
+        listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                auxArm=adapterListaArmaduras.getItem(position);
+                String[] args=new String[]{auxArm.getNombre(), String.valueOf(auxArm.getCa()), String.valueOf(auxArm.getPenalizacion()), auxArm.getTipo()};
+                db.execSQL("delete from tableArmaduras where nombre=? and ca=? and penalizacion=? and tipo=?", args);
+                adapterListaArmaduras.remove(auxArm);
+                adapterListaArmaduras.notifyDataSetChanged();
+                return false;
+            }
+        });
+
     }
 
-    public void cargarListaArmaduras(ListView listView){
+    public void cargarListaArmaduras(SwipeMenuListView listView){
         db=admindb.getReadableDatabase();
 
         if(db!=null){
@@ -104,7 +144,7 @@ public class ListaObjetosActivity extends AppCompatActivity {
                     listArmaduras.add(armadura);
                 }while(c.moveToNext());
 
-                AdapterListaArmaduras adapterListaArmaduras=new AdapterListaArmaduras(this, listArmaduras);
+                adapterListaArmaduras=new AdapterListaArmaduras(this, listArmaduras);
                 listView.setAdapter(adapterListaArmaduras);
             }
         }
@@ -116,6 +156,8 @@ public class ListaObjetosActivity extends AppCompatActivity {
         startActivity(nuevoPersonajesView);
         finish();
     }
+
+
 
     /*public void crearArma(View v){
         Intent nuevoPersonajesView= new Intent(this, CrearArmaActivity.class);
