@@ -33,7 +33,7 @@ public class AdapterListaArmas extends ArrayAdapter<Armas>{
         nombre.setText(armas.get(position).getNombre()+" ("+armas.get(position).getNumManos()+" manos)");
 
         dano = (TextView) item.findViewById(R.id.textViewTipoArmadura);
-        dano.setText(armas.get(position).getDaño());
+        dano.setText(armas.get(position).getDano());
 
         alcance = (TextView) item.findViewById(R.id.editTextCA);
         alcance.setText(String.valueOf(armas.get(position).getAlcance()));

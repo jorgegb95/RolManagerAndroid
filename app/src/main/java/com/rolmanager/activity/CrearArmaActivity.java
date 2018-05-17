@@ -46,7 +46,7 @@ public class CrearArmaActivity extends AppCompatActivity {
         inputInic = (EditText) findViewById(R.id.inputNuevoInicArma);
         inputEfecto = (EditText) findViewById(R.id.inputNuevoEfectoArma);
 
-        guardar = (Button) findViewById(R.id.buttonGuardarArmadura);
+        guardar = (Button) findViewById(R.id.buttonGuardarArma);
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +64,7 @@ public class CrearArmaActivity extends AppCompatActivity {
 
                     nuevaArma=new ContentValues();
                     nuevaArma.put("nombre", nombre);
-                    nuevaArma.put("daño", dano);
+                    nuevaArma.put("dano", dano);
                     nuevaArma.put("numManos", Integer.parseInt(manos));
                     nuevaArma.put("alcance", alcance);
                     nuevaArma.put("modInicitiava", Integer.parseInt(inic));

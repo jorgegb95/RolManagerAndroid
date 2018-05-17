@@ -2,7 +2,7 @@ package com.rolmanager.database;
 
 public class Armas {
     private String nombre;
-    private String daño;
+    private String dano;
     private int numManos;
     private int alcance;
     private int modIniciativa;
@@ -18,12 +18,12 @@ public class Armas {
         this.nombre = nombre;
     }
 
-    public String getDaño() {
-        return daño;
+    public String getDano() {
+        return dano;
     }
 
-    public void setDaño(String daño) {
-        this.daño = daño;
+    public void setDano(String dano) {
+        this.dano = dano;
     }
 
     public int getNumManos() {
@@ -62,7 +62,7 @@ public class Armas {
     public String toString() {
         return "Armas{" +
                 "nombre='" + nombre + '\'' +
-                ", daño='" + daño + '\'' +
+                ", dano='" + dano + '\'' +
                 ", numManos=" + numManos +
                 ", alcance=" + alcance +
                 ", modIniciativa=" + modIniciativa +

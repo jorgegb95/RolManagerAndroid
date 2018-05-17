@@ -7,10 +7,10 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
@@ -18,9 +18,11 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.rolmanager.Adapter.AdapterListaArmaduras;
+import com.rolmanager.Adapter.AdapterListaArmas;
 import com.rolmanager.Adapter.AdapterListaItems;
 import com.rolmanager.R;
 import com.rolmanager.database.Armaduras;
+import com.rolmanager.database.Armas;
 import com.rolmanager.database.BaseDatos;
 import com.rolmanager.database.Items;
 
@@ -29,8 +31,10 @@ import java.util.ArrayList;
 public class ListaObjetosActivity extends AppCompatActivity {
     private ArrayList<Armaduras> listArmaduras=new ArrayList<Armaduras>();
     private ArrayList<Items> listaItems= new ArrayList<Items>();
+    private ArrayList<Armas> listaArmas = new ArrayList<Armas>();
     private Armaduras auxArm=new Armaduras();
     private Items auxItem=new Items();
+    private Armas auxArmas=new Armas();
     private BaseDatos admindb;
     private SQLiteDatabase db;
     private FloatingActionButton fabItem;
@@ -40,6 +44,7 @@ public class ListaObjetosActivity extends AppCompatActivity {
     private SwipeMenuListView listView;
     private AdapterListaArmaduras adapterListaArmaduras;
     private AdapterListaItems adapterListaItems;
+    private AdapterListaArmas adapterListaArmas;
 
 
     @Override
@@ -81,7 +86,7 @@ public class ListaObjetosActivity extends AppCompatActivity {
            @Override
            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                if (position==1){
-
+                    cargarListaArmas(listView);
                }else if(position==2){
                    cargarListaArmaduras(listView);
                }else{
@@ -119,14 +124,21 @@ public class ListaObjetosActivity extends AppCompatActivity {
                     db.execSQL("delete from tableItems where nombre=?", args);
                     adapterListaItems.remove(auxItem);
                     adapterListaItems.notifyDataSetChanged();
+                    Toast.makeText(ListaObjetosActivity.this, "Item eliminado", Toast.LENGTH_SHORT).show();
                 }else if(spinner.getSelectedItemPosition()==1){//Armas
-
+                    auxArmas=adapterListaArmas.getItem(position);
+                    String[] args=new String[]{auxArmas.getNombre(), String.valueOf(auxArmas.getNumManos())};
+                    db.execSQL("delete from tableArmas where nombre=? and numManos=?", args);
+                    adapterListaArmas.remove(auxArmas);
+                    adapterListaArmas.notifyDataSetChanged();
+                    Toast.makeText(ListaObjetosActivity.this, "Arma eliminada", Toast.LENGTH_SHORT).show();
                 }else{//Armaduras
                     auxArm=adapterListaArmaduras.getItem(position);
                     String[] args=new String[]{auxArm.getNombre(), String.valueOf(auxArm.getCa()), String.valueOf(auxArm.getPenalizacion()), auxArm.getTipo()};
                     db.execSQL("delete from tableArmaduras where nombre=? and ca=? and penalizacion=? and tipo=?", args);
                     adapterListaArmaduras.remove(auxArm);
                     adapterListaArmaduras.notifyDataSetChanged();
+                    Toast.makeText(ListaObjetosActivity.this, "Armadura eliminada", Toast.LENGTH_SHORT).show();
                 }
                 return false;
             }
@@ -163,13 +175,39 @@ public class ListaObjetosActivity extends AppCompatActivity {
                 listView.setAdapter(adapterListaArmaduras);
             }
         }
-
     }
 
     public void crearArma(View v){
         Intent nuevoPersonajesView= new Intent(this, CrearArmaActivity.class);
         startActivity(nuevoPersonajesView);
         finish();
+    }
+
+    public void cargarListaArmas(SwipeMenuListView listView){
+        db=admindb.getReadableDatabase();
+
+        if(db!=null){
+            Cursor c=db.rawQuery("select * from tableArmas", null);
+
+            if(c.moveToFirst()){
+                listaArmas=new ArrayList<Armas>();
+
+                do{
+                    Armas arma = new Armas();
+                    arma.setNombre(c.getString(1));
+                    arma.setNumManos(c.getInt(3));
+                    arma.setAlcance(c.getInt(4));
+                    arma.setDano(c.getString(2));
+                    arma.setModIniciativa(c.getInt(5));
+                    arma.setEfecto(c.getString(6));
+
+                    listaArmas.add(arma);
+                }while(c.moveToNext());
+
+                adapterListaArmas=new AdapterListaArmas(this, listaArmas);
+                listView.setAdapter(adapterListaArmas);
+            }
+        }
     }
 
     public void crearItem(View v){
