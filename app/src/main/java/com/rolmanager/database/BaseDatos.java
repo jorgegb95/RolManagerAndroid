@@ -47,8 +47,7 @@ public class BaseDatos extends SQLiteOpenHelper {
                 "numManos INTEGER,"+
                 "alcance INTEGER,"+
                 "modIniciativa INTEGER,"+
-                "efecto texto,"+
-                "tipo texto)");
+                "efecto texto)");
     }
 
     public void onUpgrade (SQLiteDatabase db, int version1, int version2){

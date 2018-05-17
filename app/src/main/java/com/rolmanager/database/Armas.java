@@ -7,7 +7,6 @@ public class Armas {
     private int alcance;
     private int modIniciativa;
     private String efecto;
-    private String tipo;
 
     public Armas(){}
 
@@ -59,14 +58,6 @@ public class Armas {
         this.efecto = efecto;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
     @Override
     public String toString() {
         return "Armas{" +
@@ -76,7 +67,6 @@ public class Armas {
                 ", alcance=" + alcance +
                 ", modIniciativa=" + modIniciativa +
                 ", efecto='" + efecto + '\'' +
-                ", tipo='" + tipo + '\'' +
                 '}';
     }
 }
