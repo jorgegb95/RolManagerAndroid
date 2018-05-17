@@ -61,12 +61,12 @@ public class ListaObjetosActivity extends AppCompatActivity {
         });
 
         fabArma = findViewById(R.id.fabarmas);
-        /*fabArma.setOnClickListener(new View.OnClickListener() {
+        fabArma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 crearArma(v);
             }
-        });*/
+        });
 
         fabArmadura = findViewById(R.id.fabarmaduras);
         fabArmadura.setOnClickListener(new View.OnClickListener() {
@@ -134,6 +134,12 @@ public class ListaObjetosActivity extends AppCompatActivity {
 
     }
 
+    public void crearArmadura(View v){
+        Intent nuevoPersonajesView= new Intent(this, CrearArmaduraActivity.class);
+        startActivity(nuevoPersonajesView);
+        finish();
+    }
+
     public void cargarListaArmaduras(SwipeMenuListView listView){
         db=admindb.getReadableDatabase();
 
@@ -160,19 +166,11 @@ public class ListaObjetosActivity extends AppCompatActivity {
 
     }
 
-    public void crearArmadura(View v){
-        Intent nuevoPersonajesView= new Intent(this, CrearArmaduraActivity.class);
-        startActivity(nuevoPersonajesView);
-        finish();
-    }
-
-
-
-    /*public void crearArma(View v){
+    public void crearArma(View v){
         Intent nuevoPersonajesView= new Intent(this, CrearArmaActivity.class);
         startActivity(nuevoPersonajesView);
         finish();
-    }*/
+    }
 
     public void crearItem(View v){
         Intent nuevoPersonajesView= new Intent(this, CrearItemActivity.class);
