@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.CrearItemActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Nombre"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/inputNuevoNombreItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Descripcion"
+            android:textAlignment="center" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="265dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/textAreaNuevaDescripcionItem"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:inputType="textMultiLine" />
+        </android.support.design.widget.TextInputLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="15dp">
+
+            <Button
+                android:id="@+id/buttonGuardarItem"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="349dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/holo_red_dark"
+                android:text="Guardar"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

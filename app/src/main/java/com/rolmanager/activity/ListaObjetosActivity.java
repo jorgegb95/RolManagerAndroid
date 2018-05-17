@@ -18,15 +18,19 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.rolmanager.Adapter.AdapterListaArmaduras;
+import com.rolmanager.Adapter.AdapterListaItems;
 import com.rolmanager.R;
 import com.rolmanager.database.Armaduras;
 import com.rolmanager.database.BaseDatos;
+import com.rolmanager.database.Items;
 
 import java.util.ArrayList;
 
 public class ListaObjetosActivity extends AppCompatActivity {
-    private ArrayList<Armaduras> listArmaduras;
+    private ArrayList<Armaduras> listArmaduras=new ArrayList<Armaduras>();
+    private ArrayList<Items> listaItems= new ArrayList<Items>();
     private Armaduras auxArm=new Armaduras();
+    private Items auxItem=new Items();
     private BaseDatos admindb;
     private SQLiteDatabase db;
     private FloatingActionButton fabItem;
@@ -35,6 +39,7 @@ public class ListaObjetosActivity extends AppCompatActivity {
     private Spinner spinner;
     private SwipeMenuListView listView;
     private AdapterListaArmaduras adapterListaArmaduras;
+    private AdapterListaItems adapterListaItems;
 
 
     @Override
@@ -48,12 +53,12 @@ public class ListaObjetosActivity extends AppCompatActivity {
         listView = (SwipeMenuListView) findViewById(R.id.listaObjetos);
 
         fabItem = findViewById(R.id.fabitems);
-        /*fabItem.setOnClickListener(new View.OnClickListener() {
+        fabItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 crearItem(v);
             }
-        });*/
+        });
 
         fabArma = findViewById(R.id.fabarmas);
         /*fabArma.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +85,7 @@ public class ListaObjetosActivity extends AppCompatActivity {
                }else if(position==2){
                    cargarListaArmaduras(listView);
                }else{
-
+                    cargarListaItems(listView);
                }
            }
 
@@ -93,17 +98,11 @@ public class ListaObjetosActivity extends AppCompatActivity {
         SwipeMenuCreator swipeMenuCreator = new SwipeMenuCreator() {
             @Override
             public void create(SwipeMenu menu) {
-                // create "delete" item
                 SwipeMenuItem deleteItem = new SwipeMenuItem(
                         getApplicationContext());
-                // set item background
-                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
-                        0x3F, 0x25)));
-                // set item width
+                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,0x3F, 0x25)));
                 deleteItem.setWidth(170);
-                // set a icon
                 deleteItem.setIcon(R.drawable.delete);
-                // add to menu
                 menu.addMenuItem(deleteItem);
             }
         };
@@ -113,11 +112,22 @@ public class ListaObjetosActivity extends AppCompatActivity {
         listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
-                auxArm=adapterListaArmaduras.getItem(position);
-                String[] args=new String[]{auxArm.getNombre(), String.valueOf(auxArm.getCa()), String.valueOf(auxArm.getPenalizacion()), auxArm.getTipo()};
-                db.execSQL("delete from tableArmaduras where nombre=? and ca=? and penalizacion=? and tipo=?", args);
-                adapterListaArmaduras.remove(auxArm);
-                adapterListaArmaduras.notifyDataSetChanged();
+
+                if(spinner.getSelectedItemPosition()==0){//Items
+                    auxItem=adapterListaItems.getItem(position);
+                    String[] args = new String[] {auxItem.getNombre()};
+                    db.execSQL("delete from tableItems where nombre=?", args);
+                    adapterListaItems.remove(auxItem);
+                    adapterListaItems.notifyDataSetChanged();
+                }else if(spinner.getSelectedItemPosition()==1){//Armas
+
+                }else{//Armaduras
+                    auxArm=adapterListaArmaduras.getItem(position);
+                    String[] args=new String[]{auxArm.getNombre(), String.valueOf(auxArm.getCa()), String.valueOf(auxArm.getPenalizacion()), auxArm.getTipo()};
+                    db.execSQL("delete from tableArmaduras where nombre=? and ca=? and penalizacion=? and tipo=?", args);
+                    adapterListaArmaduras.remove(auxArm);
+                    adapterListaArmaduras.notifyDataSetChanged();
+                }
                 return false;
             }
         });
@@ -132,7 +142,6 @@ public class ListaObjetosActivity extends AppCompatActivity {
 
             if(c.moveToFirst()){
                 listArmaduras=new ArrayList<Armaduras>();
-                listArmaduras.clear();
 
                 do{
                     Armaduras armadura = new Armaduras();
@@ -165,9 +174,32 @@ public class ListaObjetosActivity extends AppCompatActivity {
         finish();
     }*/
 
-    /*public void crearItem(View v){
+    public void crearItem(View v){
         Intent nuevoPersonajesView= new Intent(this, CrearItemActivity.class);
         startActivity(nuevoPersonajesView);
         finish();
-    }*/
+    }
+
+    public void cargarListaItems(SwipeMenuListView listView){
+        db=admindb.getReadableDatabase();
+
+        if(db!=null){
+            Cursor c=db.rawQuery("select * from tableItems", null);
+
+            if(c.moveToFirst()){
+                listaItems=new ArrayList<Items>();
+
+                do{
+                    Items items = new Items();
+                    items.setNombre(c.getString(1));
+                    items.setDescripcion(c.getString(2));
+
+                    listaItems.add(items);
+                }while(c.moveToNext());
+
+                adapterListaItems=new AdapterListaItems(this, listaItems);
+                listView.setAdapter(adapterListaItems);
+            }
+        }
+    }
 }

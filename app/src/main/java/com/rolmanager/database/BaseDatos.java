@@ -37,6 +37,10 @@ public class BaseDatos extends SQLiteOpenHelper {
                 "penalizacion INTEGER,"+
                 "tipo texto)");
 
+        db.execSQL("create table if not exists tableItems(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "nombre texto,"+
+                "descripcion texto)");
+
     }
 
     public void onUpgrade (SQLiteDatabase db, int version1, int version2){

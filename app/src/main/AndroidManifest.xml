@@ -24,7 +24,8 @@
         <activity android:name=".activity.CrearPersonajeActivity" />
         <activity android:name=".activity.DetallesPersonajeActivity" />
         <activity android:name=".activity.ListaObjetosActivity" />
-        <activity android:name=".activity.CrearArmaduraActivity"></activity>
+        <activity android:name=".activity.CrearArmaduraActivity" />
+        <activity android:name=".activity.CrearItemActivity"></activity>
     </application>
 
 </manifest>
