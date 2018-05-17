@@ -26,7 +26,9 @@
             android:layout_height="match_parent"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingTop="20dp" />
+            android:paddingTop="20dp"
+            android:divider="@color/colorPrimary"
+            android:dividerHeight="8px"/>
     </LinearLayout>
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
@@ -34,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        fab:fab_addButtonColorNormal="?attr/colorPrimary"
+        fab:fab_addButtonColorNormal="?attr/colorError"
         fab:fab_addButtonSize="normal"
         fab:fab_labelsPosition="left">
 
@@ -45,7 +47,7 @@
             android:layout_marginBottom="124dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            fab:fab_colorNormal="?attr/colorError"
+            fab:fab_colorNormal="?attr/colorControlHighlight"
             fab:fab_icon="@drawable/items"
             fab:fab_size="mini"
             fab:fab_title="Items" />
@@ -57,7 +59,7 @@
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toStartOf="@+id/fabitems"
             app:layout_constraintTop_toBottomOf="@+id/fabitems"
-            fab:fab_colorNormal="?attr/colorError"
+            fab:fab_colorNormal="?attr/colorControlHighlight"
             fab:fab_icon="@drawable/armas"
             fab:fab_size="mini"
             fab:fab_title="Armas" />
@@ -69,7 +71,7 @@
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toStartOf="@+id/fabarmas"
             app:layout_constraintTop_toBottomOf="@+id/fabarmas"
-            fab:fab_colorNormal="?attr/colorError"
+            fab:fab_colorNormal="?attr/colorControlHighlight"
             fab:fab_icon="@drawable/armadura"
             fab:fab_size="mini"
             fab:fab_title="Armaduras" />

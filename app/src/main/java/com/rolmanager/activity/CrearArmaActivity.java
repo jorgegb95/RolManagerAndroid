@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -64,12 +65,12 @@ public class CrearArmaActivity extends AppCompatActivity {
 
                     nuevaArma=new ContentValues();
                     nuevaArma.put("nombre", nombre);
-                    nuevaArma.put("dano", dano);
+                    nuevaArma.put("daño", dano);
                     nuevaArma.put("numManos", Integer.parseInt(manos));
                     nuevaArma.put("alcance", alcance);
-                    nuevaArma.put("modInicitiava", Integer.parseInt(inic));
+                    nuevaArma.put("modIniciativa", Integer.parseInt(inic));
                     nuevaArma.put("efecto", efecto);
-
+                    Log.d("Arma", nuevaArma.toString());
                     db.insert("tableArmas", null, nuevaArma);
 
                     Toast.makeText(CrearArmaActivity.this, "Nueva arma creada", Toast.LENGTH_SHORT).show();

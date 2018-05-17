@@ -43,7 +43,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         db.execSQL("create table if not exists tableArmas(id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre texto,"+
-                "dano texto,"+
+                "daño texto,"+
                 "numManos INTEGER,"+
                 "alcance INTEGER,"+
                 "modIniciativa INTEGER,"+

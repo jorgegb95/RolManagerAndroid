@@ -32,17 +32,17 @@ public class AdapterListaArmas extends ArrayAdapter<Armas>{
         nombre = (TextView) item.findViewById(R.id.lblNombreManosArma);
         nombre.setText(armas.get(position).getNombre()+" ("+armas.get(position).getNumManos()+" manos)");
 
-        dano = (TextView) item.findViewById(R.id.textViewTipoArmadura);
-        dano.setText(armas.get(position).getDano());
+        dano = (TextView) item.findViewById(R.id.lblDanoArma);
+        dano.setText("Daño:"+armas.get(position).getDano());
 
-        alcance = (TextView) item.findViewById(R.id.editTextCA);
-        alcance.setText(String.valueOf(armas.get(position).getAlcance()));
+        alcance = (TextView) item.findViewById(R.id.lblAlcanceArma);
+        alcance.setText("Alcance: "+String.valueOf(armas.get(position).getAlcance()));
 
-        inic = (TextView) item.findViewById(R.id.editTextPenalizacion);
-        inic.setText(String.valueOf(armas.get(position).getModIniciativa()));
+        inic = (TextView) item.findViewById(R.id.lblIniArma);
+        inic.setText("Mod.Inic: "+String.valueOf(armas.get(position).getModIniciativa()));
 
-        efecto = (TextView) item.findViewById(R.id.editTextCA);
-        efecto.setText(String.valueOf(armas.get(position).getEfecto()));
+        efecto = (TextView) item.findViewById(R.id.lblEfectoArma);
+        efecto.setText("Efecto: "+String.valueOf(armas.get(position).getEfecto()));
 
         return(item);
     }
