@@ -15,12 +15,13 @@ import java.util.ArrayList;
 
 public class AdapterListaArmaduras extends ArrayAdapter<Armaduras> {
     private TextView nombre;
+    private TextView tipo;
     private EditText ca;
     private EditText penalizacion;
     private ArrayList<Armaduras> armaduras;
 
     public AdapterListaArmaduras(Context context, ArrayList<Armaduras> armaduras) {
-        super(context, R.layout.lista_armaduras, armaduras);
+        super(context, R.layout.activity_lista_objetos, armaduras);
         this.armaduras=armaduras;
     }
 
@@ -31,11 +32,14 @@ public class AdapterListaArmaduras extends ArrayAdapter<Armaduras> {
         nombre = (TextView) item.findViewById(R.id.lblNombreArmadura);
         nombre.setText(armaduras.get(position).getNombre());
 
+        tipo = (TextView) item.findViewById(R.id.textViewTipoArmadura);
+        tipo.setText(armaduras.get(position).getTipo());
+
         ca = (EditText) item.findViewById(R.id.editTextCA);
-        ca.setText(armaduras.get(position).getCa());
+        ca.setText(String.valueOf(armaduras.get(position).getCa()));
 
         penalizacion = (EditText) item.findViewById(R.id.editTextPenalizacion);
-        penalizacion.setText(armaduras.get(position).getPenalizacion());
+        penalizacion.setText(String.valueOf(armaduras.get(position).getPenalizacion()));
 
         return(item);
     }

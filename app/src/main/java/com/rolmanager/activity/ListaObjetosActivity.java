@@ -1,13 +1,17 @@
 package com.rolmanager.activity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.rolmanager.Adapter.AdapterListaArmaduras;
 import com.rolmanager.R;
 import com.rolmanager.database.Armaduras;
@@ -35,7 +39,7 @@ public class ListaObjetosActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listaObjetos);
 
-        fabItem = (FloatingActionButton) findViewById(R.id.fabitems);
+        fabItem = findViewById(R.id.fabitems);
         /*fabItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +47,7 @@ public class ListaObjetosActivity extends AppCompatActivity {
             }
         });*/
 
-        fabArma = (FloatingActionButton) findViewById(R.id.fabarmas);
+        fabArma = findViewById(R.id.fabarmas);
         /*fabArma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,22 +55,32 @@ public class ListaObjetosActivity extends AppCompatActivity {
             }
         });*/
 
-        fabArmadura = (FloatingActionButton) findViewById(R.id.fabarmaduras);
-       /* fabItem.setOnClickListener(new View.OnClickListener() {
+        fabArmadura = findViewById(R.id.fabarmaduras);
+        fabArmadura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 crearArmadura(v);
             }
-        });*/
+        });
 
        spinner = (Spinner) findViewById(R.id.spinnerOjetos);
-       if (spinner.getSelectedItem().toString().compareToIgnoreCase("Items")==1){
+       spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           @Override
+           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+               if (position==1){
 
-       }else if(spinner.getSelectedItem().toString().compareToIgnoreCase("Armas")==1){
+               }else if(position==2){
+                   cargarListaArmaduras(listView);
+               }else{
 
-       }else{
-           cargarListaArmaduras(listView);
-       }
+               }
+           }
+
+           @Override
+           public void onNothingSelected(AdapterView<?> parent) {
+
+           }
+       });
 
     }
 
@@ -85,6 +99,7 @@ public class ListaObjetosActivity extends AppCompatActivity {
                     armadura.setNombre(c.getString(1));
                     armadura.setCa(c.getInt(2));
                     armadura.setPenalizacion(c.getInt(3));
+                    armadura.setTipo(c.getString(4));
 
                     listArmaduras.add(armadura);
                 }while(c.moveToNext());
@@ -96,11 +111,11 @@ public class ListaObjetosActivity extends AppCompatActivity {
 
     }
 
-    /*public void crearArmadura(View v){
+    public void crearArmadura(View v){
         Intent nuevoPersonajesView= new Intent(this, CrearArmaduraActivity.class);
         startActivity(nuevoPersonajesView);
         finish();
-    }*/
+    }
 
     /*public void crearArma(View v){
         Intent nuevoPersonajesView= new Intent(this, CrearArmaActivity.class);
